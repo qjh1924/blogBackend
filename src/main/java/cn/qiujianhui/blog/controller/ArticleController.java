@@ -57,6 +57,8 @@ public class ArticleController {
      */
     @GetMapping("getArticleById/{id}")
     Article getArticleById(@PathVariable String id) {
+        // 文章浏览数+1
+        articleMapper.increaseViewCnt(id);
         return articleMapper.getArticleById(id);
     }
 
